@@ -1,0 +1,35 @@
+// A class library for making a consistent spacing in a html page.
+
+
+
+$var-root                       : ":root"   !default;
+$var-prefix                     : "spacer"  !default;
+$cssvar: "";
+@if (($var-prefix == null) or ($var-prefix == "")) {
+    $cssvar: "--";
+} @else {
+    $cssvar: "--#{$var-prefix}-";
+}
+
+$default    : var(#{$cssvar}normal)                 !default;
+$none       : 0px                                   !default;
+$smaller    : calc(var(#{$cssvar}normal) * 0.25)    !default;
+$small      : calc(var(#{$cssvar}normal) * 0.50)    !default;
+$normal     : 1rem                                  !default;
+$large      : calc(var(#{$cssvar}normal) * 1.50)    !default;
+$larger     : calc(var(#{$cssvar}normal) * 3.00)    !default;
+
+
+
+@mixin css-vars {
+    #{str-slice($cssvar, 1, -2)}    : #{$default};
+    #{$cssvar}none                  : #{$none};
+    #{$cssvar}smaller               : #{$smaller};
+    #{$cssvar}small                 : #{$small};
+    #{$cssvar}normal                : #{$normal};
+    #{$cssvar}large                 : #{$large};
+    #{$cssvar}larger                : #{$larger};
+}
+@if ($var-root) {
+    #{$var-root} { @include css-vars; }
+}

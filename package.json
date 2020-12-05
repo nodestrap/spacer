@@ -1,0 +1,26 @@
+{
+  "name": "@heymarco/spacer",
+  "version": "1.0.0",
+  "description": "A class library for making a consistent spacing in a html page.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyymarco/spacer.git"
+  },
+  "keywords": [
+    "html",
+    "space",
+    "spacing",
+    "spacer",
+    "web",
+    "page"
+  ],
+  "author": "HeyMarco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heyymarco/spacer/issues"
+  },
+  "homepage": "https://github.com/heyymarco/spacer#readme"
+}
