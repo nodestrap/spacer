@@ -21,7 +21,7 @@ $larger     : calc(var(#{$cssvar}normal) * 3.00)    !default;
 
 
 
-@mixin css-vars {
+@mixin cssvar {
     #{str-slice($cssvar, 1, -2)}    : #{$default};
     #{$cssvar}none                  : #{$none};
     #{$cssvar}smaller               : #{$smaller};
@@ -31,5 +31,5 @@ $larger     : calc(var(#{$cssvar}normal) * 3.00)    !default;
     #{$cssvar}larger                : #{$larger};
 }
 @if ($var-root) {
-    #{$var-root} { @include css-vars; }
+    #{$var-root} { @include cssvar; }
 }
