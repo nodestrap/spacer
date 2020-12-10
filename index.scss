@@ -21,15 +21,13 @@ $larger     : calc(var(#{$cssvar}normal) * 3.00)    !default;
 
 
 
-@mixin cssvar {
+@if ($var-root) { #{$var-root} {
     #{str-slice($cssvar, 1, -2)}    : #{$default};
+    #{$cssvar}default               : #{$default};
     #{$cssvar}none                  : #{$none};
     #{$cssvar}smaller               : #{$smaller};
     #{$cssvar}small                 : #{$small};
     #{$cssvar}normal                : #{$normal};
     #{$cssvar}large                 : #{$large};
     #{$cssvar}larger                : #{$larger};
-}
-@if ($var-root) {
-    #{$var-root} { @include cssvar; }
-}
+}}
