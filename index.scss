@@ -2,32 +2,56 @@
 
 
 
-$var-root                       : ":root"   !default;
-$var-prefix                     : "spacer"  !default;
-$cssvar: "";
-@if (($var-prefix == null) or ($var-prefix == "")) {
-    $cssvar: "--";
-} @else {
-    $cssvar: "--#{$var-prefix}-";
+// development:
+@use "node_modules/@heymarco/sass-class-template/index" as *;
+
+// production:
+// @use "../../../node_modules/@heymarco/sass-class-template/index" as *;
+
+
+
+@use    "sass:map"     as map;
+
+
+
+// $alias              : "%spacer"                             !default;
+// $class              : ".spacer"                             !default;
+$var-root           : ":root"                               !default;
+$var-prefix         : "spc"                                 !default;
+$var-prefix-base    : ""                                    !default;
+$cssvar: make-cssvar($var-prefix, $var-prefix-base);
+
+$default    : var(#{$cssvar}md)                             !default;
+$none       : 0px                                           !default;
+$xs         : calc(var(#{$cssvar}md) / 4)                   !default;
+$sm         : calc(var(#{$cssvar}md) / 2)                   !default;
+$md         : 1rem                                          !default;
+$lg         : calc(var(#{$cssvar}md) / 1.5)                 !default;
+$xl         : calc(var(#{$cssvar}md) / 3)                   !default;
+
+$sizes      : ()                                            !default;
+$sizes: map.merge((
+    default : $default,
+    none    : $none,
+    xs      : $xs,
+    sm      : $sm,
+    md      : $md,
+    lg      : $lg,
+    xl      : $xl
+), $sizes);
+
+
+
+@include declare-cssvar($var-root) {
+    @if (map.has-key($sizes, default)) {
+        #{str-slice($cssvar, 1, -2)}    : var(#{$cssvar}default);
+    }
+    @each $name, $value in $sizes {
+        #{$cssvar}#{$name} : #{$value};
+    }
 }
 
-$default    : var(#{$cssvar}normal)                 !default;
-$none       : 0px                                   !default;
-$smaller    : calc(var(#{$cssvar}normal) * 0.25)    !default;
-$small      : calc(var(#{$cssvar}normal) * 0.50)    !default;
-$normal     : 1rem                                  !default;
-$large      : calc(var(#{$cssvar}normal) * 1.50)    !default;
-$larger     : calc(var(#{$cssvar}normal) * 3.00)    !default;
 
 
-
-@if ($var-root) { #{$var-root} {
-    #{str-slice($cssvar, 1, -2)}    : #{$default};
-    #{$cssvar}default               : #{$default};
-    #{$cssvar}none                  : #{$none};
-    #{$cssvar}smaller               : #{$smaller};
-    #{$cssvar}small                 : #{$small};
-    #{$cssvar}normal                : #{$normal};
-    #{$cssvar}large                 : #{$large};
-    #{$cssvar}larger                : #{$larger};
-}}
+// utility class => no emit class
+// @include class($alias, $class, "");
