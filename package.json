@@ -1,6 +1,6 @@
 {
   "name": "@heymarco/spacer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A class library for making a consistent spacing in a html page.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/heyymarco/spacer#readme",
   "dependencies": {
-    "@heymarco/sass-class-template": "^1.0.5"
+    "@heymarco/sass-class-template": "^1.0.6"
   }
 }
