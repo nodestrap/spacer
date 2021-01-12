@@ -2,16 +2,9 @@
 
 
 
-// development:
-// @use "node_modules/@heymarco/sass-class-template/index" as *;
-
-// production:
-@use "../../../node_modules/@heymarco/sass-class-template/index" as *;
-
-
-
-@use    "sass:string"  as string;
-@use    "sass:map"     as map;
+@use "@heymarco/sass-class-template/src/index" as *;
+@use    "sass:string"                          as string;
+@use    "sass:map"                             as map;
 
 
 
