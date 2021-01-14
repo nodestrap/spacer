@@ -1,15 +1,20 @@
 {
-  "name": "@heymarco/spacer",
+  "name": "@nodestrap/spacer",
   "version": "2.0.0",
   "description": "A class library for making a consistent spacing in a html page.",
+  "dependencies": {
+    "@nodestrap/sass-class-template": "^2.0.2"
+  },
+  "devDependencies": {
+    "tilde-sass": "^1.0.0"
+  },
   "scripts": {
-    "test": "sass --load-path=node_modules test.scss:test.css --no-source-map",
-    "watch": "sass --load-path=node_modules src:dist --style compressed --watch",
-    "build": "sass --load-path=node_modules src:dist --style compressed"
+    "test": "tilde-sass --file test/*.scss --outFile test/",
+    "compile": "tilde-sass --file src/*.scss --outFile dist/ --outputStyle compressed"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyymarco/spacer.git"
+    "url": "git+https://github.com/nodestrap/spacer.git"
   },
   "keywords": [
     "html",
@@ -19,16 +24,10 @@
     "web",
     "page"
   ],
-  "author": "HeyMarco",
+  "author": "nodestrap, heymarco",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heyymarco/spacer/issues"
+    "url": "https://github.com/nodestrap/spacer/issues"
   },
-  "homepage": "https://github.com/heyymarco/spacer#readme",
-  "dependencies": {
-    "@heymarco/sass-class-template": "^2.0.0"
-  },
-  "devDependencies": {
-    "sass": "^1.32.4"
-  }
+  "homepage": "https://github.com/nodestrap/spacer#readme"
 }
