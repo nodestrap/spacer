@@ -1,1 +1,1 @@
-:root{--spc:var(--spc-default);--spc-default:var(--spc-md);--spc-none:0px;--spc-xs:calc(var(--spc-md) / 4);--spc-sm:calc(var(--spc-md) / 2);--spc-md:1rem;--spc-lg:calc(var(--spc-md) / 1.5);--spc-xl:calc(var(--spc-md) / 3)}
+:root{--spc:var(--spc-default);--spc-default:var(--spc-md);--spc-none:0px;--spc-xs:calc(var(--spc-md) / 4);--spc-sm:calc(var(--spc-md) / 2);--spc-md:1rem;--spc-lg:calc(var(--spc-md) * 1.5);--spc-xl:calc(var(--spc-md) * 3)}

@@ -8,20 +8,19 @@
 
 
 
-// $alias              : "%spacer"                             !default;
 // $class              : ".spacer"                             !default;
 $var-root           : ":root"                               !default;
 $var-prefix         : "spc"                                 !default;
 $var-prefix-base    : ""                                    !default;
-$cssvar: make-cssvar($var-prefix, $var-prefix-base);
+$var: make-var($var-prefix, $var-prefix-base);
 
-$default    : var(#{$cssvar}md)                             !default;
+$default    : var(#{$var}md)                                !default;
 $none       : 0px                                           !default;
-$xs         : calc(var(#{$cssvar}md) / 4)                   !default;
-$sm         : calc(var(#{$cssvar}md) / 2)                   !default;
+$xs         : calc(var(#{$var}md) / 4)                      !default;
+$sm         : calc(var(#{$var}md) / 2)                      !default;
 $md         : 1rem                                          !default;
-$lg         : calc(var(#{$cssvar}md) / 1.5)                 !default;
-$xl         : calc(var(#{$cssvar}md) / 3)                   !default;
+$lg         : calc(var(#{$var}md) * 1.5)                    !default;
+$xl         : calc(var(#{$var}md) * 3)                      !default;
 
 $sizes      : ()                                            !default;
 $sizes: map.merge((
@@ -36,16 +35,24 @@ $sizes: map.merge((
 
 
 
-@include declare-cssvar($var-root) {
+@include declare-vars($var-root) {
     @if (map.has-key($sizes, default)) {
-        #{string.slice($cssvar, 1, -2)} : var(#{$cssvar}default);
+        #{string.slice($var, 1, -2)} : var(#{$var}default);
     }
     @each $name, $value in $sizes {
-        #{$cssvar}#{$name} : #{$value};
+        #{$var}#{$name} : #{$value};
     }
 }
 
 
 
+/* begin: general style */
+@mixin style {
+    // @include base.style;
+}
+/* end: general style */
+
+
+
 // utility class => no emit class
-// @include class($alias, $class, "");
+// @include class($class, base.$class) { @include style; }

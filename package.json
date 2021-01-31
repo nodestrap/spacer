@@ -1,16 +1,26 @@
 {
   "name": "@nodestrap/spacer",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A class library for making a consistent spacing in a html page.",
   "dependencies": {
-    "@nodestrap/sass-class-template": "^2.0.2"
+    "@nodestrap/sass-class-template": "^3.0.2"
   },
   "devDependencies": {
-    "tilde-sass": "^1.0.0"
+    "tilde-sass": "^1.0.1"
   },
   "scripts": {
-    "test": "tilde-sass --file test/*.scss --outFile test/",
-    "compile": "tilde-sass --file src/*.scss --outFile dist/ --outputStyle compressed"
+    "test": "tilde-sass --file test/*.scss --outFile test/ --mergeSelectors",
+    "test-watch": "tilde-sass --file test/*.scss --outFile test/ --mergeSelectors --watch",
+    "compile": "tilde-sass --file src/*.scss --outFile dist/ --mergeSelectors --outputStyle compressed",
+    "compile-watch": "tilde-sass --file src/*.scss --outFile dist/ --mergeSelectors --outputStyle compressed --watch"
+  },
+  "cssnano": {
+    "preset": [
+      "default",
+      {
+        "calc": false
+      }
+    ]
   },
   "repository": {
     "type": "git",
